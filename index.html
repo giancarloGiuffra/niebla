@@ -76,11 +76,16 @@
 
     function onCellGridClick(ev){
         console.log("You clicked the map at " + ev.latlng.toString())
-        const donateModal = new bootstrap.Modal('#donateModal', {})
-        const latitude = donateModal.querySelector('#latitude')
-        const longitude = donateModal.querySelector('#longitude')
+
+        // modify modal element content
+        const donateElement = document.getElementById('donateModal')
+        const latitude = donateElement.querySelector('#latitude')
+        const longitude = donateElement.querySelector('#longitude')
         latitude.value = ev.latlng.latitude
         longitude.value = ev.latlng.longitude
+
+        // create and show modal
+        const donateModal = new bootstrap.Modal('#donateModal', {})
         donateModal.show()
     }
 
