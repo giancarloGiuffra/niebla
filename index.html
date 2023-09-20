@@ -41,7 +41,8 @@
                     </div>
                     <div class="mb-3">
                         <select class="form-select" aria-label="Select square meters">
-                            <option selected value="1">1</option>
+                            <option selected>Square Meters</option>
+                            <option value="1">1</option>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
@@ -81,8 +82,8 @@
         const donateElement = document.getElementById('donateModal')
         const latitude = donateElement.querySelector('#latitude')
         const longitude = donateElement.querySelector('#longitude')
-        latitude.value = ev.latlng.latitude
-        longitude.value = ev.latlng.longitude
+        latitude.value = ev.latlng.lat
+        longitude.value = ev.latlng.lng
 
         // create and show modal
         const donateModal = new bootstrap.Modal('#donateModal', {})
