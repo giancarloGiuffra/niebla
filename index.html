@@ -40,9 +40,9 @@
                         <input type="text" class="form-control" id="longitude" readonly>
                     </div>
                     <div class="mb-3">
-                        <select class="form-select" aria-label="Select square meters">
-                            <option selected>Square Meters</option>
-                            <option value="1">1</option>
+                        <label for="squareMeters" class="form-label">Longitude</label>
+                        <select id="squareMeters" class="form-select" aria-label="Select square meters">
+                            <option selected value="1">1</option>
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="20">20</option>
@@ -81,8 +81,10 @@
         const donateElement = document.getElementById('donateModal')
         const latitude = donateElement.querySelector('#latitude')
         const longitude = donateElement.querySelector('#longitude')
+        const squareMeters = donateElement.querySelector('#squareMeters')
         latitude.value = ev.latlng.lat
         longitude.value = ev.latlng.lng
+        squareMeters.value = 1
 
         // create and show modal
         const donateModal = new bootstrap.Modal('#donateModal', {})
