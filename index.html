@@ -40,7 +40,7 @@
                         <input type="text" class="form-control" id="longitude" readonly>
                     </div>
                     <div class="mb-3">
-                        <label for="squareMeters" class="form-label">Longitude</label>
+                        <label for="squareMeters" class="form-label">Square Meters</label>
                         <select id="squareMeters" class="form-select" aria-label="Select square meters">
                             <option selected value="1">1</option>
                             <option value="5">5</option>
@@ -48,6 +48,10 @@
                             <option value="20">20</option>
                             <option value="50">50</option>
                         </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">€</span>
+                        <input id="total" type="text" class="form-control" aria-label="Amount in EUR" readonly>
                     </div>
                 </form>
             </div>
@@ -77,16 +81,24 @@
     function onCellGridClick(ev){
         console.log("You clicked the map at " + ev.latlng.toString())
 
-        // modify modal element content
+        // Modify modal element content
         const donateElement = document.getElementById('donateModal')
         const latitude = donateElement.querySelector('#latitude')
         const longitude = donateElement.querySelector('#longitude')
         const squareMeters = donateElement.querySelector('#squareMeters')
+        const total = donateElement.querySelector('#total')
         latitude.value = ev.latlng.lat
         longitude.value = ev.latlng.lng
         squareMeters.value = 1
+        total.value = squareMeters.value
 
-        // create and show modal
+        // Add event listener to squareMeters to modify total
+        squareMeters.addEventListener('input', function (ev) {
+            const total = document.getElementById('total')
+            total.value = this.value
+        })
+
+        // Create and show modal
         const donateModal = new bootstrap.Modal('#donateModal', {})
         donateModal.show()
     }
