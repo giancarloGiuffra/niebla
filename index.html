@@ -43,11 +43,10 @@
 
     fetch('laniebla-grid.json')
         .then((response) => response.json())
-        .then((json) => L.geoJson(json, {
-            onEachFeature : function (feature, layer) {
-                feature.on('click', onCellGridClick)
-            }
-        }).addTo(map));
+        .then((json) => {
+            const grid = L.geoJson(json).addTo(map)
+            grid.on('click', onCellGridClick)
+        });
 </script>
 
 </body>
