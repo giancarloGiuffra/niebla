@@ -26,11 +26,31 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="donateModalLabel">Donate to La Niebla Forest</h1>
+                <h1 class="modal-title fs-5" id="donateModalLabel">Support La Niebla Forest</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
+                <form>
+                    <div class="mb-3">
+                        <label for="latitude" class="form-label">Latitude</label>
+                        <input type="text" class="form-control" id="latitude" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="longitude" class="form-label">Longitude</label>
+                        <input type="text" class="form-control" id="longitude" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="squareMeters">Square Meters</label>
+                        <input type="number" class="form-control" id="squareMeters" list="squareMetersDataList">
+                        <datalist id="squareMetersDataList" hidden>
+                            <option value="1"></option>
+                            <option value="5"></option>
+                            <option value="10"></option>
+                            <option value="20"></option>
+                            <option value="50"></option>
+                        </datalist>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
